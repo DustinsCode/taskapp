@@ -1,0 +1,8 @@
+<div class="loginContent">
+    <h1>Login</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <label for="username">Username: </label>
+        <input id="username" type="text" formControlName="userName" placeholder="Just type your name :)" maxlength="16">
+        <button type="submit" [disabled]="!loginForm.valid">Login</button>
+    </form>
+</div>

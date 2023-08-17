@@ -1,0 +1,23 @@
+@import '../../../styles/colors';
+
+.layout-header{
+    height: 3rem;
+    background-color: $crust;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+
+.header-element {
+    margin: 0 1rem;
+}
+
+.title {
+    font-weight: bolder;
+}
+
+a {
+    color: $font;
+    text-decoration: none;
+}

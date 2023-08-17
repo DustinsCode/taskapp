@@ -1,0 +1,70 @@
+@import '../../styles/colors';
+
+.homeContent {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.taskList {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+
+    .taskItemCard {
+        cursor: grab;
+        border: 0px solid;
+        border-radius: 10px;
+        margin: 0.5rem;
+        padding: 1rem;
+
+        .taskItem {
+            display: flex;
+            background: transparent;
+            justify-content: space-between;
+
+            .leftContent {
+                display: flex;
+
+                input {
+                    margin-right: 0.5rem;
+                }
+            }
+
+            .danger {
+                margin-left: 0.5rem;
+            }
+        }
+    }
+
+    .surfaceBackground {
+        background-color: $surface;
+    }
+}
+
+.dragging {
+    opacity: 0.5;
+    cursor: grabbing;
+}
+
+.dragOver {
+    background-color: $surface-dark;
+    
+    & > * {
+        pointer-events: none;
+    }
+}
+
+.danger {
+    color: $danger;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+@media(min-width: 820px) {
+    .taskList {
+        width: 30%;
+    }
+}

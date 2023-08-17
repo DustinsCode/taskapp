@@ -1,0 +1,22 @@
+<div *ngIf="user" class="homeContent">
+    <h1 class="listTitle">{{user.username}}'s tasks:</h1>
+    <input placeholder="New Task" (keyup.enter)="saveTask($event)" maxlength="200">
+    <div class="taskList">
+        <div *ngFor="let task of user.tasks" id="{{task._id}}" 
+            draggable="true" class="taskItemCard surfaceBackground"
+            (dragstart)="handleDragStart($event)" 
+            (dragend)="handleDragEnd($event)" 
+            (dragover)="handleDragOver($event)" 
+            (dragleave)="handleDragLeave($event)"
+            (drop)="handleDrop($event)"
+        >
+            <div class="taskItem">
+                <div class="leftContent">
+                    <input type="checkbox" (click)="completeTask(task)"/>
+                    <span>{{task.description}}</span>
+                </div>
+                <i (click)="deleteTask(task)" class="danger clickable material-symbols-outlined">delete</i>
+            </div>
+        </div>
+    </div>
+</div>

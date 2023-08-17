@@ -1,0 +1,37 @@
+version: '1.0.0'
+
+services:
+  mongodb:
+    container_name: MongoDBContainer
+    image: mongo:latest
+    restart: unless-stopped
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo_data:/data/db
+    env_file:
+      - ./db/.env
+    networks:
+      - node-mongo
+
+  task-app:
+    container_name: task-app
+    depends_on:
+      - mongodb
+    build:
+      context: ./server
+    env_file:
+      - ./server/.prod.env
+    restart: unless-stopped
+    ports:
+      - 3000:3000
+    networks:
+      - node-mongo
+
+
+volumes:
+  mongo_data: {}
+
+networks:
+  node-mongo:
+    driver: bridge

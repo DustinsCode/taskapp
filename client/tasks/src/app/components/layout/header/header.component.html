@@ -1,0 +1,14 @@
+<div class="layout-header">
+    <div class="left-content">
+        <a class="title" href="/">Task Manager!</a> 
+    </div>
+    <div class="right-content">
+        <div *ngIf="user; else noUser">
+            <span class="header-element">{{user}}</span>
+            <button class="header-element" (click)="logout()">Logout</button>
+        </div>
+        <ng-template #noUser>
+            <a class="header-element" href="/login">Login</a>
+        </ng-template>
+    </div>
+</div>
